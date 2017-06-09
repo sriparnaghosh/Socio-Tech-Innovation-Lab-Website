@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<title>Admin Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style/mystyle.css">
+<link rel="stylesheet" href="style/projectstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+</style>
+<body class="w3-light-grey" style="background-color:Gainsboro">
+  <!-- Navigation bar with social media icons -->
+  <div class="w3-bar w3-light-grey w3-hide-small" style="padding:2px;">
+      <a href="https://www.facebook.com/csedsce2017/"<i class="fa fa-facebook-official fa-5x" aria-hidden="true"></i></a></a>
+        <a href="logout.php"><button class="w3-button w3-black w3-section" style="width:auto;float:right;">Logout</button></a>
+    </div>
+      <!-- Automatic Slideshow Images -->
+      <div class="w3-display-container w3-center">
+        <img src="media/poster.jpg" style="width:100%;height:400px">
+      </div>
+
+    <!--submit project section-->
+    <div class="projectform w3-half" style="padding:10px">
+      <center>
+        <h2>Submit a new Project!</h2>
+        <form method="post" action="createproject.php">
+            <div class="projectname" style="padding:20px">
+              <input name="projectname" type="text" placeholder="Enter Project Name"/>
+            </div>
+            <div class="projectlead" style="padding:20px">
+              <input type="text" name="projectlead" placeholder="Enter project lead name"/>
+            </div>
+            <div class="member1" style="padding:20px">
+              <input type="text" name="member1" placeholder="Enter Member Name"/>
+            </div>
+            <div class="member2" style="padding:20px">
+              <input type="text" name="member2" placeholder="Enter Member Name"/>
+            </div>
+            <div class="member3" style="padding:20px">
+              <input type="text" name="member3" placeholder="Enter Member Name"/>
+            </div>
+            <div class="proj-image" style="padding:20px;">
+              <input type="text" name="projectimage" placeholder="Enter Image path"/>
+              <!--<input type="file" name="myImage" accept="image" placeholder="Upload Image" style="padding-left:70px;"/>-->
+            </div>
+            <div class="submitbtn" style="padding:20px">
+              <button class="w3-button w3-black w3-section" type="submit" >SUBMIT</button>
+            </div>
+          </form>
+          <br>
+            <textarea rows="4" cols="50" name="description" form="usrform" style="padding:10px" placeholder="Enter project description here!"></textarea>
+    </center>
+    </div>
+    <!--submit blog section-->
+    <div class="blogform w3-half" style="padding:10px">
+      <center>
+        <h2>Submit a new Blog Post!</h2>
+        <form method="post" action="createblogpost.php" >
+            <div class="blogname" style="padding:20px">
+              <input type="text" placeholder="Enter BLOG Title"/>
+            </div>
+            <div class="blogtagline" style="padding:20px">
+              <input type="text" placeholder="Enter a tag line"/>
+            </div>
+            <div class="blog-image" style="padding:20px;">
+              <input type="text" placeholder="Enter Image path"/>
+              <!--<input type="file" name="myImage" accept="image" placeholder="Upload Image/Video" style="padding-left:70px;"/>-->
+            </div>
+            <h4>OR</h4>
+            <div class="blog-video" style="padding:20px;">
+              <input type="text" placeholder="Enter Video path"/>
+              <!--<input type="file" name="myImage" accept="image" placeholder="Upload Image/Video" style="padding-left:70px;"/>-->
+            </div>
+            <div class="submitbtn" style="padding:20px">
+              <button class="w3-button w3-black w3-section" type="submit" >SUBMIT</button>
+            </div>
+          </form>
+            <br>
+            <textarea rows="14" cols="50" name="description" form="usrform" style="padding:10px" placeholder="Enter blog content here!"></textarea>
+    </center>
+    </div>
+
+  </body>
+</html>

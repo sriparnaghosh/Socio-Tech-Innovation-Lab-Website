@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<title>Project Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style/mystyle.css">
+<link rel="stylesheet" href="style/projectstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    /*background-color: #4CAF50;
+    color: white;*/
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top" style="width:100%;">
+    <div class="w3-bar w3-white w3-card-2" style="height:70px;">
+      <div style="float:left;">
+        <a href="index.html" ><img src="media/logo-new.png" height="70" width="100"></a>
+      </div>
+      <div class="menu">
+        <a href="index.html #about us" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+        <a href="blog.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BLOG</a>
+        <a href="#events" class="w3-bar-item w3-button w3-padding-large w3-hide-small">EVENTS</a>
+        <a href="#success" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SUCCESS STORIES</a>
+        <a href="projectpage.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROJECTS</a>
+        <a href="index.html #contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT US</a>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="blog.html" class="w3-bar-item w3-button w3-padding-large">BLOGS</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large">EVENTS</a>
+    <a href="#success" class="w3-bar-item w3-button w3-padding-large">SUCCESS STORIES</a>
+    <a href="projectpage.html" class="w3-bar-item w3-button w3-padding-large">PROJECT</a>
+    <a href="index.html #contact" class="w3-bar-item w3-button w3-padding-large">CONTACT US</a>
+  </div>
+
+  <!-- Login Modal-->
+  <div id="loginmodal" class="modal">
+
+    <form class="modal-content animate" method="post" action="login.php">
+      <div class="imgcontainer">
+        <span class="close" title="Close Modal" onclick="document.getElementById('loginmodal').style.display='none'">&times;</span>
+      </div>
+
+      <div class="w3-container">
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Enter Username" name="email" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit" name="submit">Login</button>
+        <input type="checkbox" checked="checked"> Remember me
+      </div>
+
+      <div class="w3-container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('loginmodal').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById('loginmodal');
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:100%;margin-top:70px;">
+  <!--image --><!-- The Modal -->
+  <div class="mySlides w3-display-container w3-center" style="width:100%;">
+    <img src="media/projectimage.jpg" style="width:100%;height:350px;">
+  </div>
+
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="projects">
+    <h2 class="w3-wide">PROJECTS</h2>
+  </div>
+  <!--Photo Grid-->
+  <div>
+  <!-- First Photo Grid-->
+  <!-- Retinal Stimulation-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="projects">
+    <div class="w3-third" style="padding:20px" id="Btn1">
+      <img src="media/vision.jpg" alt="Vision Image" style="width:100%">
+      <h3>Gaming For Well Being</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal1" class="modal">
+
+      <!-- Modal content 1 -->
+      <div class="modal-content">
+        <span class="close1">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/larika.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Larika Amlani</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/neha.JPG" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Neha Adanur</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/subhamchoudhary.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Shubham Choudhary</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>A game for blurred vision.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third" style="padding:20px">
+      <img src="media/suicide.jpg" alt="aasra" style="width:100%" id="Btn2">
+      <h3>The Veldt:AASRA (Suicidal Helpline)</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal2" class="modal">
+
+      <!-- Modal content 1 -->
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/ayush.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Ayush Arora</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/apurv.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Kumar Apurv</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/priyangshu.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Priyangshu Roy</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Developing a Mobile Chat Application for NGO "AASRA" so as to give a platform to people coping with Depression and Suicidal Tendencies to be able to share with anonymous volunteers. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third" style="padding:20px">
+      <img src="media/traffic.jpg" alt="Cherries" style="width:100%" id="Btn3">
+      <h3>Don't bother to run ,We'll catch you!</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal3" class="modal">
+
+      <!-- Modal content 1 -->
+      <div class="modal-content">
+        <span class="close3">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Description third</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Second Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-third" style="padding:20px">
+      <img src="media/icu.jpg" alt="Pasta and Wine" style="width:100%" id="Btn4">
+      <h3>Feedback system for art spark</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal4" class="modal">
+
+      <!-- Modal content 4 -->
+      <div class="modal-content">
+        <span class="close4">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/kumarsubham.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Kumar Shubham</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/manasa.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%;height:110px">
+                  <figcaption style="padding-left:30px">Manasa G Rao</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/piyush.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Piyush Ranjan</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/fehad.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%;height:110px">
+                  <figcaption style="padding-left:30px">Fehad Amin</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Art spark is an ngo working on improving life skills and art.
+We are working to build an app for them which will act like their feedback sytem that will allow users to response and also provide administrators right to the ngo's authority.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-third" style="padding:20px">
+      <img src="media/water.jpeg" alt="Popsicle" style="width:100%" id="Btn5">
+      <h3>Trying to stop World WarIII</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal5" class="modal">
+
+      <!-- Modal content 5 -->
+      <div class="modal-content">
+        <span class="close5">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/sriparna.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%;height:115px">
+                  <figcaption style="padding-left:30px">Sriparna Ghosh</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/sonu.JPG" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%;height:115px">
+                  <figcaption style="padding-left:30px">Sonu Kumar</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/sneha.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Sneha S</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/antra.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Antra Guha</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Water Harvesting solutions for everyone </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third" style="padding:20px">
+      <img src="media/webportal.jpg" alt="Salmon" style="width:100%" id="Btn6">
+      <h3>HelpiNGO</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal6" class="modal">
+
+      <!-- Modal content 6 -->
+      <div class="modal-content">
+        <span class="close6">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/kashif.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Kashif Zahid</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/anushil.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Anushil Kumar</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/aman.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Aman Rauniyar</figcaption>
+                </figure>
+              </div>
+              <div class="w3-quarter">
+                <figure>
+                  <img src="media/anurag.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%;height:70px">
+                  <figcaption style="padding-left:30px">Anurag Babel</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Description</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Third Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-third" style="padding:20px">
+      <img src="media/budget.png" alt="Sandwich" style="width:100%" id="Btn7">
+      <h3>Budget App</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal7" class="modal">
+
+      <!-- Modal content 1 -->
+      <div class="modal-content">
+        <span class="close7">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Description</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third" style="padding:20px">
+      <img src="media/smartcard.jpg" alt="Croissant" style="width:100%;height:300px;" id="Btn8">
+      <h3>Smart Ration Card</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal8" class="modal">
+
+      <!-- Modal content 8 -->
+      <div class="modal-content">
+        <span class="close8">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/member.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/logo.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Name</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Last description</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third" style="padding:20px">
+      <img src="media/invisiblewan.jpg" alt="Invisible WAN" style="width:100%;height:300px;" id="Btn9">
+      <h3>Invisible WAN : Did it All For the Cookies</h3>
+    </div>
+    <!-- The Modal -->
+    <div id="Modal9" class="modal">
+
+      <!-- Modal content 8 -->
+      <div class="modal-content">
+        <span class="close9">&times;</span>
+        <div class="w3-light-grey" id="tour" style="height:500px">
+          <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">OUR TEAM</h2>
+            <div class="w3-row w3-padding-32">
+              <div class="w3-third">
+                <figure>
+                  <img src="media/guhan.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Guhan Sundar</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/adithya.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Adithya Dev</figcaption>
+                </figure>
+              </div>
+              <div class="w3-third">
+                <figure>
+                  <img src="media/raghav.jpg" class="w3-round w3-margin-bottom img-circle" alt="Random Name" style="width:60%">
+                  <figcaption style="padding-left:30px">Raghav Sai</figcaption>
+                </figure>
+              </div>
+            </div>
+            <p>Our project is focused on helping the blind and visually impaired persons with their daily tasks.
+We combined the power of deep learning using recurrent neural networks which connects to the android app through a flask server. The app allows the user to take/choose images and it gives voice outputs describing the scene and objects found in the picture</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--End of third photo  grid-->
+</div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding w3-center w3-opacity w3-light-grey w3-xlarge">
+    <center><a href="https://www.facebook.com/csedsce2017/">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    </a></center>
+    <button onclick="document.getElementById('loginmodal').style.display='block'" class="w3-button w3-black w3-section" style="width:auto;float:right;">Admin Login</button>
+  </footer>
+<!-- End page content -->
+</div>
+
+<!-- Modal 1 -->
+<script>
+// Get the modal
+var modal1 = document.getElementById('Modal1');
+// Get the button that opens the modal
+var btn1 = document.getElementById("Btn1");
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 2 -->
+<script>
+// Get the modal
+var modal2 = document.getElementById('Modal2');
+// Get the button that opens the modal
+var btn2 = document.getElementById("Btn2");
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close2")[0];
+// When the user clicks the button, open the modal
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal3.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 3 -->
+<script>
+// Get the modal
+var modal3 = document.getElementById('Modal3');
+// Get the button that opens the modal
+var btn3 = document.getElementById("Btn3");
+// Get the <span> element that closes the modal
+var span3 = document.getElementsByClassName("close3")[0];
+// When the user clicks the button, open the modal
+btn3.onclick = function() {
+    modal3.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+    modal3.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 4 -->
+<script>
+// Get the modal
+var modal4 = document.getElementById('Modal4');
+// Get the button that opens the modal
+var btn4 = document.getElementById("Btn4");
+// Get the <span> element that closes the modal
+var span4 = document.getElementsByClassName("close4")[0];
+// When the user clicks the button, open the modal
+btn4.onclick = function() {
+    modal4.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span4.onclick = function() {
+    modal4.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 5 -->
+<script>
+// Get the modal
+var modal5 = document.getElementById('Modal5');
+// Get the button that opens the modal
+var btn5 = document.getElementById("Btn5");
+// Get the <span> element that closes the modal
+var span5 = document.getElementsByClassName("close5")[0];
+// When the user clicks the button, open the modal
+btn5.onclick = function() {
+    modal5.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span5.onclick = function() {
+    modal5.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal5) {
+        modal5.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 6 -->
+<script>
+// Get the modal
+var modal6 = document.getElementById('Modal6');
+// Get the button that opens the modal
+var btn6 = document.getElementById("Btn6");
+// Get the <span> element that closes the modal
+var span6 = document.getElementsByClassName("close6")[0];
+// When the user clicks the button, open the modal
+btn6.onclick = function() {
+    modal6.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span6.onclick = function() {
+    modal6.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal6) {
+        modal6.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 7 -->
+<script>
+// Get the modal
+var modal7 = document.getElementById('Modal7');
+// Get the button that opens the modal
+var btn7 = document.getElementById("Btn7");
+// Get the <span> element that closes the modal
+var span7 = document.getElementsByClassName("close7")[0];
+// When the user clicks the button, open the modal
+btn7.onclick = function() {
+    modal7.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span7.onclick = function() {
+    modal7.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal7) {
+        modal7.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 8 -->
+<script>
+// Get the modal
+var modal8 = document.getElementById('Modal8');
+// Get the button that opens the modal
+var btn8 = document.getElementById("Btn8");
+// Get the <span> element that closes the modal
+var span8 = document.getElementsByClassName("close8")[0];
+// When the user clicks the button, open the modal
+btn8.onclick = function() {
+    modal8.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span8.onclick = function() {
+    modal8.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal8) {
+        modal8.style.display = "none";
+    }
+}
+</script>
+
+<!-- Modal 9 -->
+<script>
+// Get the modal
+var modal9 = document.getElementById('Modal9');
+// Get the button that opens the modal
+var btn9 = document.getElementById("Btn9");
+// Get the <span> element that closes the modal
+var span9 = document.getElementsByClassName("close9")[0];
+// When the user clicks the button, open the modal
+btn9.onclick = function() {
+    modal9.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span9.onclick = function() {
+    modal9.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal9) {
+        modal9.style.display = "none";
+    }
+}
+</script>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

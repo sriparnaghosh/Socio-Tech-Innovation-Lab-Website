@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<title>Blog Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style/projectstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    /*background-color: #4CAF50;
+    color: white;*/
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    /*width: 100%;*/
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Navigation bar with social media icons -->
+<div class="w3-bar w3-light-grey w3-hide-small" style="padding:10px;">
+    <a href="https://www.facebook.com/csedsce2017/"<i class="fa fa-facebook-official fa-5x" aria-hidden="true"></i></a></a>
+      <button onclick="document.getElementById('loginmodal').style.display='block'" class="w3-button w3-black w3-section" style="width:auto;float:right;">Admin Login</button>
+  </div>
+
+<!-- Login Modal-->
+<div id="loginmodal" class="modal">
+
+  <form class="modal-content animate" method="post" action="login.php">
+    <div class="imgcontainer">
+      <span class="close" title="Close Modal" onclick="document.getElementById('loginmodal').style.display='none'">&times;</span>
+    </div>
+
+    <div class="w3-container">
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <button type="submit" name="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="w3-container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('loginmodal').style.display='none'" class="cancelbtn">Cancel</button>
+      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('loginmodal');
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+  <!-- Header -->
+  <header class="w3-container w3-center w3-padding-48 w3-white">
+    <a href="index.html">
+    <h1 class="w3-xxxlarge"><b>Socio-Tech Innovation Lab</b></h1></a>
+    <h6>Welcome to the blog of <span class="w3-tag">SIL</span></h6>
+  </header>
+
+  <!-- Image header -->
+  <header class="w3-display-container w3-wide" id="home">
+    <img class="w3-image" src="media/blog2.jpg" alt="Technical Blog" style="width:100%;height:500px;">
+    <div class="w3-display-right w3-padding-large">
+      <h1 class="w3-jumbo w3-text-white" style="padding-left:1050px;">SIL's</h1>
+      <h1 class="w3-text-white w3-hide-small"style="padding-left:1050px;"><b>Technical Blog</b></h1>
+      <h6 style="padding-top:150px;"><center><button "class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></center></h6>
+    </div>
+  </header>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3>Kickstart Cabs</h3>
+          <video width="420" height="400" controls autoplay>
+            <source src="media/blogvideo1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        <div class="w3-justify">
+
+          <p><strong>Kickstart Cabs!</strong>
+            <div class="item">
+              <p>  You may not think twice before boarding a train, a bus, or climbing a step – these mundane actions are made almost subconsciously by us each day. But for the 70 million disabled people in India, getting hassle-free access to public transport is a challenge </p>
+              <p>Only about 15 percent of the locomotor-disabled in India are able to use public transport, as compared to over 65 percent  of<a href="#" class="read_more" id="seemore">Read More</a><br/></p>
+              <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Like</b></button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3>Microsoft Cognitive Services: Introducing the Seeing AI project </h3>
+          <video width="420" height="400" controls>
+            <source src="media/blind.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p><strong>Microsoft Cognitive Services!</strong>
+            <div class="item">
+            <p> Saqib is a core Microsoft developer living in London, who lost the use of his eyes at age 7. He found inspiration in computing and is helping build Seeing AI, a research project that helps people who are visually impaired or blind to better understand who and what is around them. The project is built using intelligence APIs from Microsoft Cognitive Services (www.microsoft.com/cognitive).
+            </p>
+            <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Like</b></button></p>
+          </div>
+        </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <center><h1>Kickstart Cabs</h1></center>
+    <p>You may not think twice before boarding a train, a bus, or climbing a step – these mundane actions are made almost subconsciously by us each day. But for the 70 million disabled people in India, getting hassle-free access to public transport is a challenge.</p>
+    <p>Only about 15 percent of the locomotor-disabled in India are able to use public transport, as compared to over 65 percent  of disabled populations in developed countries. The rest struggle to commute daily, or are immobile.</p>
+    <p>India’s social support network of family and friends may be much stronger than in developed nations, but our barrier-free access to public facilities is a rising cause for concern.</p>
+  </div>
+
+</div>
+
+    <!-- END BLOG ENTRIES -->
+    </div>
+
+    <!-- About/Information -->
+    <div class="w3-col l4">
+      <!-- About -->
+      <div class="w3-white w3-margin">
+        <!--<img src="/w3images/avatar_girl2.jpg" alt="Jane" style="width:100%" class="w3-grayscale"> -->
+        <div class="w3-container w3-black">
+          <h4>SIL</h4>
+        </div>
+          <p class="w3-padding">Have something interesting, wanna share it ? Well you are on the right place! Shareit!! and do click the subscribe button.</p>
+      </div>
+
+      <!-- Inspiration -->
+      <div class="w3-hover-text-white" style="padding-top:0.5px;">
+        <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Follow Us</h4>
+        </div>
+        <div class="w3-container w3-xlarge w3-padding">
+          <a href="https://www.facebook.com/csedsce2017/">
+          <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        </a>
+        </div>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-black">
+          <h4>Subscribe</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <form name="subscribe" method="post" action="subscribe.php" >
+          <p>Enter your e-mail below and get notified on the latest blog posts.</p>
+          <p><input name="email" class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
+          <p><input type="submit" value="Subscribe" id="btn" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Subscribe Modal -->
+<div id="subscribe" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h2 class="w3-wide">SUBSCRIBE</h2>
+      <form name="subscribe" method="post" action="subscribe.php" >
+      <p>Join my mailing list to receive updates on the latest blog posts and other things.</p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"name="email"></p>
+      <input type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" value="Subscribe" onclick="document.getElementById('subscribe').style.display='none'">
+    </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey" style="padding:32px">
+  <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+</footer>
+
+<script>
+// Toggle between hiding and showing blog replies/comments
+document.getElementById("seemore").click();
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("seemore");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+function likeFunction(x) {
+    x.style.fontWeight = "bold";
+    x.innerHTML = "✓ Liked";
+}
+</script>
+
+</body>
+</html>
